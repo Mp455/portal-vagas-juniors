@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String?
+  email        String?  @unique
+  githubLogin  String   @unique
+  avatarUrl    String?
+  bio          String?
+
+  mainStack    String?  // ex: "Frontend", "React"
+  reposCount   Int      @default(0)
+  starsCount   Int      @default(0)
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  views        JobView[]
+}
+
+model Job {
+  id           String    @id @default(cuid())
+  title        String
+  company      String
+  description  String
+  level        JobLevel
+  stack        String    // ex: "React, Next.js, JS"
+  location     String?
+  isRemote     Boolean   @default(true)
+
+  applyUrl     String
+  slug         String    @unique
+
+  published    Boolean   @default(true)
+
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  views        JobView[]
+}
+
+model JobView {
+  id        String   @id @default(cuid())
+  userId    String
+  jobId     String
+  matchPct  Int?     // 0–100
+
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+  job  Job  @relation(fields: [jobId], references: [id])
+
+  @@unique([userId, jobId])
+}
+
+enum JobLevel {
+  ESTAGIO
+  JUNIOR
+}
