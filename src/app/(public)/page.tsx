@@ -1,5 +1,6 @@
 "use client";
 
+import CardSection from "@/_components/card-section";
 import { useJobs } from "@/hooks/useJobs";
 
 export default function JobsPage() {
@@ -9,21 +10,9 @@ export default function JobsPage() {
   if (isError) return <p>Erro ao carregar vagas</p>;
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-10">
       {data?.map((job) => (
-        <div key={job.id} className="border p-4 rounded">
-          <h2 className="font-bold">{job.title}</h2>
-          <p>{job.company}</p>
-          <p>{job.location}</p>
-          <p className="text-sm">{job.level}</p>
-          <a
-            href={job.applyUrl}
-            target="_blank"
-            className="text-blue-600 underline"
-          >
-            Candidatar-se
-          </a>
-        </div>
+        <CardSection key={job.id} job={job} />
       ))}
     </div>
   );

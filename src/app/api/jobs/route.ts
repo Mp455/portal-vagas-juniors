@@ -14,6 +14,7 @@ export async function GET() {
         id: true,
         title: true,
         company: true,
+        stack: true,
         location: true,
         level: true,
         applyUrl: true,
