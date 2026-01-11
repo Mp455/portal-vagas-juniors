@@ -1,7 +1,8 @@
 "use client";
-import { Button } from "@/components/ui/8bit/button";
+
 import { SelectThemeDropdown } from "./select-theme-dropdown";
 import { useThemeConfig } from "./active-theme";
+import { Button } from "./ui/8bit/button";
 
 export default function Header() {
   const { activeTheme, setActiveTheme } = useThemeConfig();

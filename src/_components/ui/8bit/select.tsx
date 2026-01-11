@@ -14,7 +14,7 @@ import {
   SelectSeparator as ShadcnSelectSeparator,
   SelectTrigger as ShadcnSelectTrigger,
   SelectValue as ShadcnSelectValue,
-} from "@/components/ui/select";
+} from "@/_components/ui/select";
 
 import "./styles/retro.css";
 

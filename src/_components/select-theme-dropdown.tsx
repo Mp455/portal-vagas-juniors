@@ -1,13 +1,13 @@
 "use client";
 
+import { Theme } from "@/lib/themes";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/8bit/select";
-import { Theme } from "@/lib/themes";
+} from "./ui/8bit/select";
 
 const themes = [
   { name: Theme.Default, color: "#000" },
