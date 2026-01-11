@@ -13,7 +13,7 @@ type CardSectionProps = {
   job: Job;
 };
 
-export default function CardSection({ job }: CardSectionProps) {
+export default function JobCard({ job }: CardSectionProps) {
   return (
     <Card className="h-full">
       <CardHeader>

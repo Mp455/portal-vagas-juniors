@@ -1,6 +1,6 @@
 "use client";
 
-import CardSection from "@/_components/card-section";
+import CardSection from "@/_components/job-card";
 import { useJobs } from "@/hooks/useJobs";
 
 export default function JobsPage() {
